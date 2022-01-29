@@ -19,8 +19,8 @@ class ProductService(val db: ProductRepository) {
         return db.save(product)
     }
 
-    fun get(id : String) : Optional<Product> {
-        return db.findById(id)
+    fun get(id : String) : Product? {
+        return db.findById(id).orElse(null)
     }
 
     fun update(producto : Product) : Product {
