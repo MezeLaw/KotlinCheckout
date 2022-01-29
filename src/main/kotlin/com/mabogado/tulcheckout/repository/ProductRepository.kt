@@ -8,4 +8,5 @@ interface ProductRepository : CrudRepository<Product, String> {
 
         @Query("select * from products")
         fun findProducts(): List<Product>
+
 }
