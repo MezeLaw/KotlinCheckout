@@ -32,7 +32,7 @@ class ProductResource(@Autowired val service : ProductService) {
 
     @PostMapping("/product/")
     fun post(@RequestBody product: Product): ResponseEntity<Product> {
-        if (product.is_simple) {
+        if (!product.is_simple) {
             val auxPrice: Double = product.price / 2
             product.price = auxPrice
         }
