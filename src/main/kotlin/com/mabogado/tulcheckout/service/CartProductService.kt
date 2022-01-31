@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service
 @Service
 class CartProductService(@Autowired val db : CartProductRepository) {
 
-    fun getByCartId(){
-
+    fun getByCartId(id : String) : List<CartProduct>?{
+        return this.db.getByCartId(id)
     }
 
     fun create(products : List<CartProduct>, cart : Cart){
@@ -19,6 +19,10 @@ class CartProductService(@Autowired val db : CartProductRepository) {
                 this.db.save(product)
 
             }
+    }
+
+    fun getCartProducts(): List<CartProduct> {
+        return this.db.getCartProducts()
     }
 
     fun update(){

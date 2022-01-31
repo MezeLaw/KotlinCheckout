@@ -22,9 +22,18 @@ class CartService(@Autowired val cartRepo : CartRepository) {
         var cartEntity : com.mabogado.tulcheckout.dataclass.Cart = com.mabogado.tulcheckout.dataclass.Cart(
             null,
             Status.PENDING.toString(),
+            0.0,
             Timestamp(System.currentTimeMillis()), null, null)
 
         return this.cartRepo.save(cartEntity)
+    }
+
+    fun getByCartId(id : String) : com.mabogado.tulcheckout.dataclass.Cart? {
+        return this.cartRepo.findById(id).orElse(null)
+    }
+
+    fun getCarts() : List<com.mabogado.tulcheckout.dataclass.Cart> {
+        return this.cartRepo.findProducts()
     }
 
 }

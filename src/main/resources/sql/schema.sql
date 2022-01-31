@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS products (
 );
 
 CREATE TABLE IF NOT EXISTS carts (
-    id VARCHAR(60)  DEFAULT RANDOM_UUID() PRIMARY KEY,
+    id VARCHAR(60) DEFAULT RANDOM_UUID() PRIMARY KEY,
     status VARCHAR(60) NULL default 'PENDING',
     price numeric null default 0.0,
     fecha_create timestamp without time zone null DEFAULT CURRENT_TIMESTAMP,
