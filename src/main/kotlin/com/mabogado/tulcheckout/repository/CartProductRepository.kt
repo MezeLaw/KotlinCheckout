@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param
 
 interface CartProductRepository: CrudRepository<CartProduct, String> {
 
-    @Query("select * from CART_PRODUCTS where cart_id = :id")
+    @Query("select * from CART_PRODUCTS where cart_id = :id and fecha_delete is null")
     fun getByCartId(id : String) : List<CartProduct>
 
     @Query("select * from CART_PRODUCTS")

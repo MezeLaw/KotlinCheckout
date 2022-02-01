@@ -13,11 +13,10 @@ class CartProductService(@Autowired val db : CartProductRepository) {
         return this.db.getByCartId(id)
     }
 
-    fun create(products : List<CartProduct>, cart : Cart){
+    fun create(products: List<CartProduct>, cart: Cart){
             for (product: CartProduct in products) {
                 product.cart_id = cart.id
                 this.db.save(product)
-
             }
     }
 
@@ -25,11 +24,11 @@ class CartProductService(@Autowired val db : CartProductRepository) {
         return this.db.getCartProducts()
     }
 
-    fun update(){
-
+    fun update(cartProduct : CartProduct) : CartProduct{
+        return this.db.save(cartProduct)
     }
 
-    fun delete(){
-
+    fun delete(id : String){
+        return this.db.deleteById(id)
     }
 }
